@@ -1,0 +1,52 @@
+Joint representation learning
+
+JRL was formed on the basis that the data is informed heterogeneous data for informed recommendation
+1. Ranking-based recommendation to construct top-N recommendation lists.
+2. Referring to principles of multi-view machine learning [33], a Joint Representation Learning (JRL) is a approach as a general framework for recommendation, which builds representation learning on top of pair-wise learning to rank for top-N recommendation In this framework, each kind of information source is considered as a view, and each piece of information therein (e.g., a piece of review) is considered as an entity.
+3. In each view, entities are represented as embeddings based on available (deep) representation learning architectures. These entity embeddings are connected to users and items based on the observed user-item interactions, which give us the user and item representations in the corresponding view. 
+4. Representations from each view are further mapped to a shared semantic space with a full connection to obtain the integrated user/item representations, which are multiplied to produce the ranking scores for pair-wise learning to rank
+5. An objective function is figured out for top N recommendation based on rating, text review and images of the cover. Framework uses different methods from different papers for each type of representation of rating, review and image.
+6. Each of the representation layer has an objective function which is merged at the end and is optimised using gradient methods and a weight is produced for each user-view representation layer. This is weight is used in the final merge function as a parameter to optimise.
+7. For textual review: PV-DBOW model is used for learning review view representation.  
+8. For visual images it used DNN architectures to learn image view representation. It involves training the data using multilayer neural networks. Features of this view are calculated use Caffe DNN. [there was explanation about the 5 layer neural network in the paper how to use it in 3.2]
+9. For ratings, two-layer fully connected neural network representations are used for each user and item. 
+10. Once the objective function for all the views are created based on the feature functions, 3-view objective function is created by concatenation of all the above objective functions and optimisation techniques are used to maximise this objective function. That is optimised based on Stochastic Gradient Descent (SGD) in well-developed deep learning infrastructures
+11. Experiments: 
+    1. Ratings: BPR-MF for model learning is used. Text reviews: Hidden Factors and Topics model is one of the state-of-the-art methods for rating prediction with textual reviews. Image: VBPR. Deep Cooperative Neural Networks model for recommendation, which models users and items jointly using review text for rating prediction. Collaborative Knowledge-base Embedding model for recommendation. We adopt the textual product description and product image knowledge for model implementation. ratings (BPR), reviews (BPRHFT, DeepCoNN), and images (VBPR, CKE), respectively. 
+    2. A comparison is made w.r.t to different subdomains of amazon data. 
+
+
+Conclusion:
+	Pros:
+    1. This paper provides very good framework to implement with as many hyper parameters as possible dynamically. For eg, we create the model with 3 hyper params and want to introduce a new param after a while, we need not retrain the model. Framework provides the extendability of it.
+    2. It has steep learning curve and we can explore different ML and NN Algos in the process. 
+	Cons:
+    1. This requires understanding of lot of ML and DNN concepts. If we plan to start doing it using this approach, we need to immediately start understanding of these concepts and use this paper to implement it. 
+    2. Though we have the implementation details in GitHub, it will take time to understand things like learning rates, stochastic gradient descent, multi layer neural networks, loss and objective functions. https://github.com/evison/JRL
+
+
+
+Summary: VBPR: Visual Bayesian Personalized Ranking from Implicit Feedback
+
+Features extracted from product images using (pre-trained) deep networks, on top of which we learn an additional layer that uncovers the visual dimensions that best explain the variation in people’s feedback
+introduce a Matrix Factorization approach that incorporates visual signals into predictors of people’s opinions while scaling to large datasets.
+Derivation and analysis of a Bayesian Personalized Ranking (BPR) based training procedure, which is suitable to uncover visual factors.
+Experiments on large and novel real-world datasets revealing our method’s effectiveness, as well as visualizations of the visual rating space we uncover
+first formulate the task in question and introduce our Matrix Factorization based predictor function.  
+Develop our training procedure using a Bayesian Personalized Ranking (BPR) framework.
+single image is available for each item
+ 
+
+Conclusion:
+
+Movies do not have image
+Each movie has at least 5 reviews.  In their data set > 60% of
+s, we can’t directly use this approach.  I’ll try and figure out if we can use Bayesian personal ranking method we can apply to our data.
+
+
+
+Hidden Factors and Hidden Topics: Understanding Rating Dimensions with Review Text
+
+This paper introduces a new model 'Hidden Factors as Topics' or HFT. HFT model predicts the ratings with more accuracy by harnessing the information present in review text. Latent Factor Recommender Systems uncover hidden dimensions in review ratings whereas Latent Dirichlet Allocation(LDA) uncover hidden dimensions in review text. HFT attempts to combine these two ideas.This model aims to combine rating dimensions with review topics. A topic is a label to a text which tells what the text is talking about.
+
+The paper contains results about the performance of the algorithm on several amazon datasets. We need to see how it performs for  Movie lens dataset. The C++ code is available in the following link https://cseweb.ucsd.edu/~jmcauley/. We can consider implementing it in python and see how it works for movie lens data.
