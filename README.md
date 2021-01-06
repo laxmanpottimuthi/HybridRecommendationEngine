@@ -48,10 +48,11 @@ measures:
  F-measure: F=2*Precision*Recall / (Precision + Recall). The F score can provide a more realistic measure of a test’s performance by using both precision and recall.
  NDCG: Normalized Discounted Cumulative Gain. This is another metric which measures the quality of the ranking of the predictions.
 
+# Tools
+For the implementation part we have used surprise package which is a python scikit library for building and analyzing the performance of our hybrid recommender system. To perform sentiment analysis of the reviews we have used Natural Language Toolkit (NLTK) a NLP library in python.
 
 # Contributions:
-ashshetty-prog
-Sreeram Maddineni
-Krishnamurthy Subramanian
+ashshetty-prog, Sreeram Maddineni, Krishnamurthy Subramanian
+
 
 
