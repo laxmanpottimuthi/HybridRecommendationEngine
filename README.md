@@ -35,7 +35,7 @@ The data set that is being considered is Amazon small, 5-core Movies and TV revi
 (UCSD)(data page ) site provided as a part of the assignment. 5-core implies each user and movie has at least 5 reviews. This is a json
 tuple with following fields in table 1: data set titles
 <p align="center">
-    <img src="ReadMeImages/json_format_for_recsys .png">
+    <img src="readmeImages/json_format_for_recsys .png">
 </p>
 Link: https://nijianmo.github.io/amazon/index.html
 
