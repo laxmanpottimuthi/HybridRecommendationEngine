@@ -37,6 +37,7 @@ tuple with following fields in table 1: data set titles
 <p align="center">
     <img src="readmeImages/json_format_for_recsys .png">
 </p>
+
 Link: https://nijianmo.github.io/amazon/index.html
 
 
