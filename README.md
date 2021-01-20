@@ -53,7 +53,7 @@ measures:
 For the implementation part we have used surprise package which is a python scikit library for building and analyzing the performance of our hybrid recommender system. To perform sentiment analysis of the reviews we have used Natural Language Toolkit (NLTK) a NLP library in python.
 
 # Contributions:
-ashshetty-prog, Sreeram Maddineni, Krishnamurthy Subramanian
+Ashmitha Shetty(ashshetty-prog), Sreeram Maddineni, Krishnamurthy Subramanian
 
 
 
